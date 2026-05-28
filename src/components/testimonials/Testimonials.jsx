@@ -13,7 +13,7 @@ const Testimonials = () => {
           className="testimonial-card"
         >
           <p className="quote-text">"Their work isn't just photography; it's art. They captured the true essence of our day."</p>
-          <span className="client-name">— PRASANNA & HARINI</span>
+          <span className="client-name">— Selvakumar & Sowmitha</span>
         </motion.div>
         
         <motion.div 
@@ -23,7 +23,7 @@ const Testimonials = () => {
           className="testimonial-card"
         >
           <p className="quote-text">"An incredible storytelling experience. We felt so comfortable and the results are timeless."</p>
-          <span className="client-name">— MURALI & MEENA</span>
+          <span className="client-name">— Karthik & Meha Dharsini </span>
         </motion.div>
       </div>
     </section>

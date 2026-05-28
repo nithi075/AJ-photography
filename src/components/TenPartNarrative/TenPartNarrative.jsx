@@ -5,9 +5,9 @@ import "./TenPartNarrative.css";
 import img1 from "../../assets/featured/img1.jpg";
 import img2 from "../../assets/featured/img2.jpg";
 import img3 from "../../assets/featured/img3.jpg";
-import img4 from "../../assets/featured/img6.jpg";
+import img4 from "../../assets/featured/img4.jpg";
 import img5 from "../../assets/featured/img5.jpg";
-import img6 from "../../assets/featured/img4.jpg";
+import img6 from "../../assets/featured/img6.jpg";
 
 const containerVariants = {
   hidden: {},

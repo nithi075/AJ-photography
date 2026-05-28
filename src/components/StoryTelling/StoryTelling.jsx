@@ -47,9 +47,7 @@ const StoryBlock = ({ item, isReverse }) => (
 
       <img src={item.imageMain} alt={item.title} />
 
-      <div className="story-floating">
-        <img src={item.imageFloat} alt="Detail shot" />
-      </div>
+   
 
     </div>
 

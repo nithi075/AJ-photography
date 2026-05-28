@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import './About.css';
 
-// Import your image
-import aboutImage from '../../assets/about1.png';
+// Import your video
+import aboutVideo from '../../assets/about-video.mp4';
 
 const About = () => {
   return (
@@ -10,14 +10,21 @@ const About = () => {
 
       <div className="about-wrapper">
 
-        {/* Left Image */}
+        {/* Left Video */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="about-image"
         >
-          <img src={aboutImage} alt="Photographer" />
+          <video
+            src={aboutVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="about-video"
+          />
         </motion.div>
 
         {/* Right Content */}
