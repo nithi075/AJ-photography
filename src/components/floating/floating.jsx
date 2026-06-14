@@ -1,26 +1,30 @@
-import "./floating.css";
-import { useNavigate } from "react-router-dom";
-import { FiCalendar } from "react-icons/fi";
+import './Floating.css'
+import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa'
 
-export default function FloatingChat() {
-
-  const navigate = useNavigate();
-
+export default function Floating() {
   return (
-    <div className="floating-container">
+    <div className="floating-contact">
 
-      <button
-        className="floating-chat-glass icon-btn"
-        onClick={() => navigate("/book-event")}
-        aria-label="Book Event"
+      {/* Phone */}
+      <a
+        href="tel:+60165033804"
+        className="floating-contact__btn floating-contact__btn--phone"
+        aria-label="Call Us"
       >
-        <span className="shimmer-effect"></span>
+        <FaPhoneAlt size={22} />
+      </a>
 
-        <FiCalendar className="floating-icon" />
-      </button>
-
-      <div className="floating-glow"></div>
+      {/* WhatsApp */}
+      <a
+        href="https://wa.me/60165033804"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-contact__btn floating-contact__btn--whatsapp"
+        aria-label="WhatsApp Us"
+      >
+        <FaWhatsapp size={30} />
+      </a>
 
     </div>
-  );
+  )
 }

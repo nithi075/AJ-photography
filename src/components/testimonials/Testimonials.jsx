@@ -1,126 +1,99 @@
-import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
-import "./Testimonials.css";
-
-import client1 from "../../assets/story3.jpg";
-import client2 from "../../assets/story4.jpg";
+/* =============================================
+   Testimonials — 3 rotating sets of 3 reviews
+   ============================================= */
+import { useState } from 'react'
+import './Testimonials.css'
 
 const testimonials = [
   {
-    image: client1,
-    name: "Selvakumar & Sowmitha",
-    review:
-      "Their work isn't just photography; it's art. Every emotion, every detail, and every fleeting moment was captured beautifully. Looking through our album feels like reliving the day all over again."
+    id: 1,
+    body: 'Thank you zerowatts to capture best moments of our wedding & reception. We loved the pre-wedding shoots and the tradition pictures. It was amazing working with you. Team of photographers are very flexible to work with. Great effort on end to end follow up to make sure we received albums.',
+    couple: 'Theebica + Purushoth',
   },
   {
-    image: client2,
-    name: "Karthik & Meha Dharsini",
-    review:
-      "An incredible storytelling experience from start to finish. The team made us feel comfortable, and the photographs are timeless. We couldn't have asked for a better experience."
-  }
-];
+    id: 2,
+    body: 'We had the pleasure of working with Zerowatts Photography for our engagement, reception, and wedding events in May 2024, and we couldn\'t be happier with the results! From start to finish, their team demonstrated incredible professionalism and creativity.',
+    couple: 'Jeevitha + Pawan',
+  },
+  {
+    id: 3,
+    body: 'We have booked Zerowatts for engagement, pre-wedding shoot, reception and wedding. They did a wonderful job and made us feel really comfortable. Overall experience with them all as topnotch! Would really love to work with them again.',
+    couple: 'Pratibha + Ashwanth',
+  },
+  {
+    id: 4,
+    body: 'Had pleased experience with zero Watts photography right from the pre-wedding photoshoot till the wedding events! Great teamwork and the crew members were super friendly and talented! The album and photos quality came out beautifully! Thank you team.',
+    couple: 'Pooja + Raveen',
+  },
+  {
+    id: 5,
+    body: 'I want to personally thank Zero Watts for their incredible effort in capturing every beautiful moment of the event. The deliverables were exactly as promised and turned out amazing. It was a pleasure working with them. I would definitely recommend their services to everyone!',
+    couple: 'Divyashree + Narayanan',
+  },
+  {
+    id: 6,
+    body: 'We loved the team, their efforts to get good pictures even when the bride and groom were cranky is highly appreciable. One can see the efforts the team goes through to deliver good quality services. They kept us comfortable throughout the event, Thank you Team ZW.',
+    couple: 'Subathra + Animesh',
+  },
+  {
+    id: 7,
+    body: 'The candid and traditional photography teams were exceptional, perfectly balancing spontaneous moments with the more classic shots. The videography was just stunning, and every important detail was covered flawlessly. You\'ve helped us relive our big day in the best way possible!',
+    couple: 'Nivya + Manoj',
+  },
+  {
+    id: 8,
+    body: 'Wonderful experience with Zerowatts! From pre-shoot till wedding we had smooth experience. The pictures were well captured and they make amazing viral reels! Highly recommend Zero Watts Photography to anyone seeking a talented and professional photography team!',
+    couple: 'Aishwarya + Rahul',
+  },
+  {
+    id: 9,
+    body: 'Great photographers — done outstanding job. We are fully satisfied with photos and videos. Especially wedding teaser was awesome. Professional staff and showed patience throughout event. Praveen followed up regularly until all deliverables are met. Really recommend.',
+    couple: 'Amrin + Saleem Pasha',
+  },
+]
 
-/* Duplicate cards for smoother carousel */
-const displayTestimonials = [
-  ...testimonials,
-  ...testimonials,
-  ...testimonials
-];
+/* Group into pages of 3 */
+const pages = [
+  testimonials.slice(0, 3),
+  testimonials.slice(3, 6),
+  testimonials.slice(6, 9),
+]
 
-const Testimonials = () => {
-  const sliderRef = useRef(null);
-
-  useEffect(() => {
-    const slider = sliderRef.current;
-
-    if (!slider) return;
-
-    const interval = setInterval(() => {
-      const card =
-        slider.querySelector(".testimonial-card");
-
-      if (!card) return;
-
-      const cardWidth = card.offsetWidth;
-      const gap = 35;
-
-      const nextPosition =
-        slider.scrollLeft + cardWidth + gap;
-
-      const maxScroll =
-        slider.scrollWidth - slider.clientWidth;
-
-      if (nextPosition >= maxScroll - 50) {
-        slider.scrollTo({
-          left: 0,
-          behavior: "smooth"
-        });
-      } else {
-        slider.scrollTo({
-          left: nextPosition,
-          behavior: "smooth"
-        });
-      }
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
+export default function Testimonials() {
+  const [page, setPage] = useState(0)
 
   return (
-    <section className="testimonials-section">
+    <section className="testimonials" aria-labelledby="testimonials-heading">
+      <div className="testimonials__container">
+        <span className="section-label" id="testimonials-heading">Testimonials</span>
 
-      <span className="testimonial-label">
-        TRUSTED BY OUR CLIENTS
-      </span>
+        <div className="testimonials__grid">
+          {pages[page].map((t) => (
+            <article key={t.id} className="testimonial-card">
+              {/* Quotation mark */}
+              <span className="testimonial-card__quote" aria-hidden="true">"</span>
+              <p className="testimonial-card__body">{t.body}</p>
+              <footer className="testimonial-card__footer">
+                <p className="testimonial-card__couple">{t.couple}</p>
+              </footer>
+            </article>
+          ))}
+        </div>
 
-      <h2 className="section-title">
-        Words Of Love
-      </h2>
-
-      <div
-        className="testimonial-slider"
-        ref={sliderRef}
-      >
-
-        {displayTestimonials.map((item, index) => (
-          <motion.div
-            key={index}
-            className="testimonial-card"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.7,
-              delay: index * 0.05
-            }}
-          >
-
-            <div className="client-avatar">
-              <img
-                src={item.image}
-                alt={item.name}
-              />
-            </div>
-
-            <h3 className="client-name">
-              {item.name}
-            </h3>
-
-            <div className="quote-icon">
-              ❝
-            </div>
-
-            <p className="quote-text">
-              {item.review}
-            </p>
-
-          </motion.div>
-        ))}
-
+        {/* Page dots */}
+        <div className="testimonials__dots" role="tablist" aria-label="Testimonial page">
+          {pages.map((_, i) => (
+            <button
+              key={i}
+              className={`testimonials__dot${i === page ? ' testimonials__dot--active' : ''}`}
+              onClick={() => setPage(i)}
+              role="tab"
+              aria-selected={i === page}
+              aria-label={`Testimonials page ${i + 1}`}
+            />
+          ))}
+        </div>
       </div>
-
     </section>
-  );
-};
-
-export default Testimonials;
+  )
+}

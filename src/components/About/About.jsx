@@ -1,80 +1,68 @@
-import { motion } from "framer-motion";
-import "./About.css";
+import './About.css'
 
-import aboutVideo from "../../assets/about-video.mp4";
+import video1 from '../../assets/about1.mp4'
+import video2 from '../../assets/about2.mp4'
 
-const About = () => {
-  return (
-    <section className="about-section" id="about">
+export default function About() {
+return ( <section className="about" id="about" aria-labelledby="about-heading"> <div className="about__container">
 
-      <div className="about-label">
-        <span>THE STORYTELLER</span>
+
+    {/* ---- Video Column ---- */}
+    <div className="about__images">
+
+      <div className="about__img-primary">
+        <video
+          className="about__video"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src={video1} type="video/mp4" />
+        </video>
       </div>
 
-      <div className="about-wrapper">
-
-        <motion.div
-          className="about-image"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+      <div className="about__img-secondary">
+        <video
+          className="about__video"
+          autoPlay
+          muted
+          loop
+          playsInline
         >
-          <video
-            src={aboutVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="about-video"
-          />
-
-          <div className="video-badge">
-            EST. 2025
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="about-content"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <span className="about-mini">
-            WEDDING • MATERNITY • PRE-WEDDING
-          </span>
-
-          <h2 className="about-title">
-            Every Frame Holds
-            <br />
-            A Story Worth Remembering
-          </h2>
-
-          <p className="quote">
-            “Capturing the unseen poetry in every frame.”
-          </p>
-
-          <p className="about-text">
-            Photography is more than preserving moments.
-            It is about documenting emotions, relationships,
-            and the quiet beauty that often goes unnoticed.
-          </p>
-
-          <p className="about-text">
-            My approach blends cinematic storytelling with
-            timeless editorial aesthetics, creating imagery
-            that feels honest, elegant, and deeply personal.
-          </p>
-
-          <a href="#contact" className="about-btn">
-            Let's Create Together
-          </a>
-        </motion.div>
-
+          <source src={video2} type="video/mp4" />
+        </video>
       </div>
-    </section>
-  );
-};
 
-export default About;
+    </div>
+
+    {/* ---- Text Column ---- */}
+    <div className="about__text">
+      <span className="section-label">
+        Why Srimathi Photography?
+      </span>
+
+      <h2 className="about__heading" id="about-heading">
+        Capturing Love Stories With Timeless Elegance
+      </h2>
+
+      <p className="about__body">
+        Every wedding tells a unique story, and our passion is turning
+        those moments into lasting memories. From intimate glances and
+        heartfelt emotions to grand celebrations, we blend creativity,
+        storytelling, and cinematic artistry to preserve every detail
+        beautifully. Our goal is to create photographs and films that
+        allow you to relive your special day for years to come.
+      </p>
+
+      <a href="#contact" className="btn about__cta">
+        Let's Talk
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+)
+}

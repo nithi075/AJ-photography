@@ -1,201 +1,221 @@
+/* =============================================
+Hero.css
+============================================= */
+
 .hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 40px 20px;
-  background: #111;
+position: relative;
+width: 100%;
+height: 100vh;
+min-height: 600px;
+overflow: hidden;
+background: var(--color-black);
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.05);
+/* ---- Slides ---- */
+.hero__slides {
+position: absolute;
+inset: 0;
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.6)
-    );
-  z-index: 1;
+.hero__slide {
+position: absolute;
+inset: 0;
+opacity: 0;
+transition: opacity 1.2s ease;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 700px;
+.hero__slide--active {
+opacity: 1;
 }
 
-.journal-tag {
-  color: #d4af37;
-  font-size: 0.75rem;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 1.5rem;
+.hero__slide-img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center;
+animation: heroZoom 8s ease forwards;
 }
 
-.hero-title {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(4rem, 10vw, 8rem);
-  line-height: 0.9;
-  color: #fff;
-  font-weight: 400;
-  margin-bottom: 2rem;
+@keyframes heroZoom {
+from {
+transform: scale(1.06);
+}
+to {
+transform: scale(1);
+}
 }
 
-.journal-line {
-  width: 80px;
-  height: 1px;
-  background: #d4af37;
-  margin: 0 auto 2rem;
+/* ---- Overlay ---- */
+.hero__overlay {
+position: absolute;
+inset: 0;
+background: linear-gradient(
+to bottom,
+rgba(0, 0, 0, 0.15) 0%,
+rgba(0, 0, 0, 0.35) 50%,
+rgba(0, 0, 0, 0.72) 100%
+);
+z-index: 1;
 }
 
-.hero-quote {
-  max-width: 550px;
-  margin: auto;
-  color: rgba(255,255,255,0.9);
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.25rem;
-  font-style: italic;
-  line-height: 1.8;
-  margin-bottom: 2.5rem;
+/* ---- Content ---- */
+.hero__content {
+position: absolute;
+bottom: 14%;
+left: 50%;
+transform: translateX(-50%);
+z-index: 2;
+text-align: center;
+width: min(90%, 900px);
+animation: heroFadeUp 1s ease 0.3s both;
 }
 
-.cta-button {
-  background: transparent;
-  border: 1px solid #d4af37;
-  color: #d4af37;
-  padding: 14px 34px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: 0.4s ease;
+@keyframes heroFadeUp {
+from {
+opacity: 0;
+transform: translateX(-50%) translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateX(-50%) translateY(0);
+}
 }
 
-.cta-button:hover {
-  background: #d4af37;
-  color: #111;
+.hero__eyebrow {
+font-family: var(--font-display);
+font-size: clamp(1rem, 2vw, 1.4rem);
+font-weight: 300;
+font-style: italic;
+color: rgba(255, 255, 255, 0.95);
+letter-spacing: 0.08em;
+margin-bottom: 1rem;
 }
 
-.journal-date {
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-  z-index: 2;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.3em;
-  font-size: 0.75rem;
+.hero__heading {
+font-family: var(--font-display);
+font-size: clamp(3rem, 8vw, 6rem);
+font-weight: 400;
+line-height: 1.05;
+color: var(--color-white);
+margin-bottom: 1.5rem;
+text-transform: none;
+letter-spacing: -0.02em;
 }
 
+.hero__description {
+max-width: 650px;
+margin: 0 auto;
+font-size: clamp(1rem, 2vw, 1.15rem);
+line-height: 1.8;
+color: rgba(255, 255, 255, 0.88);
+font-weight: 300;
+}
+
+.hero__cta {
+margin-top: 2rem;
+}
+
+/* ---- Dots ---- */
+.hero__dots {
+position: absolute;
+bottom: 2rem;
+left: 50%;
+transform: translateX(-50%);
+z-index: 2;
+display: flex;
+gap: 0.75rem;
+}
+
+.hero__dot {
+width: 7px;
+height: 7px;
+border-radius: 50%;
+border: none;
+padding: 0;
+cursor: pointer;
+background: rgba(255, 255, 255, 0.4);
+transition: all 0.3s ease;
+}
+
+.hero__dot--active {
+background: white;
+transform: scale(1.5);
+}
+
+.hero__dot:hover {
+background: rgba(255, 255, 255, 0.8);
+}
+
+/* ---- Scroll Hint ---- */
+.hero__scroll-hint {
+position: absolute;
+bottom: 2rem;
+right: 2rem;
+z-index: 2;
+}
+
+.hero__scroll-line {
+display: block;
+width: 1px;
+height: 50px;
+background: rgba(255, 255, 255, 0.5);
+animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+0%,
+100% {
+opacity: 0.3;
+transform: scaleY(1);
+}
+50% {
+opacity: 1;
+transform: scaleY(0.6);
+}
+}
+
+/* ---- Tablet ---- */
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 4rem;
-  }
-
-  .hero-quote {
-    font-size: 1rem;
-    padding: 0 10px;
-  }
-
-  .cta-button {
-    width: 100%;
-  }
-
-  .journal-date {
-    right: 15px;
-    bottom: 15px;
-  }
-}
-/* Mobile Devices */
-@media (max-width: 768px) {
-  .hero {
-    min-height: 100dvh;
-    padding: 20px 16px;
-  }
-
-  .hero-content {
-    max-width: 100%;
-  }
-
-  .journal-tag {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    margin-bottom: 1rem;
-  }
-
-  .hero-title {
-    font-size: clamp(3rem, 15vw, 4.5rem);
-    line-height: 0.95;
-    margin-bottom: 1.2rem;
-  }
-
-  .journal-line {
-    width: 60px;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-quote {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    padding: 0 8px;
-    margin-bottom: 2rem;
-  }
-
-  .cta-button {
-    width: 100%;
-    max-width: 280px;
-    padding: 14px 20px;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-  }
-
-  .journal-date {
-    bottom: 20px;
-    right: 20px;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-  }
+.hero__content {
+bottom: 16%;
+width: 92%;
 }
 
-/* Small Mobile Devices */
+.hero__heading {
+font-size: clamp(2.5rem, 12vw, 4rem);
+}
+
+.hero__description {
+font-size: 0.95rem;
+line-height: 1.7;
+}
+
+.hero__scroll-hint {
+display: none;
+}
+}
+
+/* ---- Mobile ---- */
 @media (max-width: 480px) {
-  .hero {
-    padding: 20px 12px;
-  }
+.hero {
+min-height: 520px;
+}
 
-  .journal-tag {
-    font-size: 0.55rem;
-    letter-spacing: 0.2em;
-  }
+.hero__eyebrow {
+font-size: 0.9rem;
+}
 
-  .hero-title {
-    font-size: clamp(2.5rem, 14vw, 3.5rem);
-  }
+.hero__heading {
+font-size: 2.3rem;
+line-height: 1.1;
+}
 
-  .hero-quote {
-    font-size: 0.85rem;
-    line-height: 1.6;
-  }
+.hero__description {
+font-size: 0.9rem;
+line-height: 1.6;
+}
 
-  .cta-button {
-    width: 100%;
-    font-size: 0.7rem;
-    padding: 13px 16px;
-  }
-
-  .journal-date {
-    font-size: 0.55rem;
-    bottom: 15px;
-    right: 15px;
-  }
+.hero__cta {
+margin-top: 1.5rem;
+}
 }

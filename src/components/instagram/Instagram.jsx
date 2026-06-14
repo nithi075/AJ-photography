@@ -1,73 +1,67 @@
-import React from "react";
-import "./Instagram.css";
-import { FaRegHeart, FaRegComment, FaRegBookmark } from "react-icons/fa";
+import { motion } from 'framer-motion';
+import './Instagram.css';
 
-/* Import images */
-import insta1 from "../../assets/instagram/img1.jpg";
-import insta2 from "../../assets/instagram/img2.jpg";
-import insta3 from "../../assets/instagram/img3.jpg";
-import insta4 from "../../assets/instagram/img4.jpg";
-import insta5 from "../../assets/instagram/img5.jpg";
-import insta6 from "../../assets/instagram/img6.jpg";
+import gallery1 from '../../assets/gal1.jpg';
+import gallery2 from '../../assets/gal2.jpg';
+import gallery3 from '../../assets/gal3.jpg';
+import gallery4 from '../../assets/gal6.jpg';
+import gallery5 from '../../assets/gal4.jpg';
+import gallery6 from '../../assets/gal5.jpg';
 
 const Instagram = () => {
-  // Array of objects use pannuna 'key' management easy-ah irukkum
-  const posts = [
-    { id: 1, img: insta1 },
-    { id: 2, img: insta2 },
-    { id: 3, img: insta3 },
-    { id: 4, img: insta4 },
-    { id: 5, img: insta5 },
-    { id: 6, img: insta6 },
+  const images = [
+    gallery1,
+    gallery2,
+    gallery3,
+    gallery4,
+    gallery5,
+    gallery6,
   ];
 
   return (
-    <section className="insta-compact-section">
-      {/* Header */}
-      <div className="insta-header-minimal">
-        <span className="insta-mini-tag">FOLLOW OUR STORY</span>
-        <h3>@goldenlights_photography</h3>
-      </div>
+    <section className="insta-feed" id="instagram">
 
-      {/* Wrapper */}
-      <div className="insta-wrapper-small">
-        <div className="insta-scroll-container">
-          {posts.map((post) => (
-            <div key={post.id} className="insta-card-box">
-              {/* Image Frame */}
-              <div className="insta-img-frame">
-                <img
-                  src={post.img}
-                  alt={`Jeeva Photography Post ${post.id}`}
-                  loading="lazy" 
-                />
-              </div>
+      <h2 className="insta-feed__title">
+        VISUAL NARRATIVES
+      </h2>
 
-              {/* Actions */}
-              <div className="insta-card-actions">
-                <div className="left-actions">
-                  <FaRegHeart className="insta-icon heart" />
-                  <FaRegComment className="insta-icon" />
-                </div>
-                <div className="right-actions">
-                  <FaRegBookmark className="insta-icon" />
-                </div>
-              </div>
+      <a
+        href="https://www.instagram.com/srimathi_photography/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="insta-feed__handle"
+      >
+        @srimathi_photography
+      </a>
+
+      <div className="insta-feed__grid">
+
+        {images.map((img, i) => (
+
+          <motion.div
+            key={i}
+            className="insta-feed__item"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: i * 0.1,
+            }}
+            viewport={{ once: true }}
+          >
+            <div className="insta-feed__image">
+              <img
+                src={img}
+                alt={`Instagram Post ${i + 1}`}
+                loading="lazy"
+              />
             </div>
-          ))}
-        </div>
+          </motion.div>
+
+        ))}
+
       </div>
 
-      {/* Footer link */}
-      <div className="insta-footer-link">
-        <a
-          href="https://www.instagram.com/goldenlights_photography/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Discover More
-        </a>
-      </div>
     </section>
   );
 };

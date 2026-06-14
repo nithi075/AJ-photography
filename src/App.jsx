@@ -1,94 +1,62 @@
-import "./index.css";
+import { Routes, Route } from 'react-router-dom'
 
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
+import Navbar from './components/Navbar/Navbar'
+import Hero from './components/Hero/Hero'
+import About from './components/About/About'
+import Gallery from './components/Gallery/Gallery'
+import Testimonials from './components/Testimonials/Testimonials'
+import Contact from './components/Contact/Contact'
+import Instagram from './components/instagram/instagram'
+import FAQ from './components/FreequentQ/faq'
+import Footer from './components/Footer/Footer'
+import Portfolio from './components/Portfolio/Portfolio'
+import ScrollToTop from './components/ScrollToTop'
 
-// Home Components
-import Hero from "./components/Hero/Hero";
-import StorySection from "./components/StorySection/StorySection";
-import About from "./components/About/About";
-import Testimonials from "./components/testimonials/Testimonials";
-import Gallery from "./components/Gallery/Gallery";
-import Footer from "./components/footer/footer";
-import Navbar from "./components/Navbar/Navbar";
-import Storytelling from "./components/StoryTelling/StoryTelling";
-import WeddingStory from "./components/WeddingStory/WeddingStory";
-import TenPartNarrative from "./components/TenPartNarrative/TenPartNarrative";
-import FAQ from "./components/FreequentQ/faq";
-import FloatingChat from "./components/floating/floating";
-import OverlayForm from "./components/overlay/overlay";
-// Gallery Detail Page
-import GalleryDetail from "./pages/Gallery";
+import './App.css'
+import Floating from './components/Floating/Floating'
 
-/* =========================
-   HOME PAGE
-========================= */
-
-function HomePage() {
+function Home() {
   return (
-    <div className="app">
-      <Navbar />
-
+    <main>
       <Hero />
-
-      {/* <StorySection /> */}
-         <Storytelling />
-
-      <TenPartNarrative />
-
-   
-
-
       <About />
+      
+      <section id="gallery">
 
-      <WeddingStory />
+        <Gallery />
 
+      </section>
       <Testimonials />
-       
+      <section id="contact">
 
+        <Contact />
+
+      </section>
+      <Instagram />
       <FAQ />
-
-      <Gallery />
-      <FloatingChat />
-
-      <Footer />
-    </div>
-  );
+      <Floating/>
+    </main>
+  )
 }
-
-/* =========================
-   APP ROUTES
-========================= */
 
 function App() {
   return (
-    <BrowserRouter>
+    <div className="app">
+      <ScrollToTop />
+
+      <Navbar />
+
       <Routes>
+        <Route path="/" element={<Home />} />
 
-        {/* Home */}
-        <Route
-          path="/"
-          element={<HomePage />}
-        />
- {/* Overlay Form */}
-  <Route
-    path="/book-event"
-    element={<OverlayForm />}
-  />
+        <Route path="/portfolio" element={<Portfolio />} />
 
-        {/* Dynamic Gallery */}
-        <Route
-          path="/gallery/:category"
-          element={<GalleryDetail />}
-        />
 
       </Routes>
-    </BrowserRouter>
-  );
+
+      <Footer />
+    </div>
+  )
 }
 
-export default App;
-
+export default App
