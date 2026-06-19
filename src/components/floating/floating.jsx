@@ -7,7 +7,7 @@ export default function Floating() {
 
       {/* Phone */}
       <a
-        href="tel:+60165033804"
+        href="tel:+60176212001"
         className="floating-contact__btn floating-contact__btn--phone"
         aria-label="Call Us"
       >
@@ -16,7 +16,7 @@ export default function Floating() {
 
       {/* WhatsApp */}
       <a
-        href="https://wa.me/60165033804"
+        href="https://wa.me/60176212001"
         target="_blank"
         rel="noopener noreferrer"
         className="floating-contact__btn floating-contact__btn--whatsapp"

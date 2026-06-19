@@ -50,7 +50,7 @@ return ( <footer className="footer"> <div className="footer__top">
   aria-label="Srimathi Photography — Home"
 >
   <span className="footer__logo-text">
-    SRIMATHI
+    AJ
     <small>PHOTOGRAPHY</small>
   </span>
 </Link>
@@ -123,7 +123,7 @@ return ( <footer className="footer"> <div className="footer__top">
 
         {/* Facebook */}
         <a
-          href="https://www.facebook.com/Zerowattsphotography/"
+          href="https://www.facebook.com/ajphotographyMALAYSIA"
           className="footer__social-link"
           target="_blank"
           rel="noopener noreferrer"
@@ -142,7 +142,7 @@ return ( <footer className="footer"> <div className="footer__top">
 
         {/* Instagram */}
         <a
-          href="https://www.instagram.com/zerowattsphotography/"
+          href="https://www.instagram.com/aj_photography_malaysia/"
           className="footer__social-link"
           target="_blank"
           rel="noopener noreferrer"
@@ -166,35 +166,15 @@ return ( <footer className="footer"> <div className="footer__top">
         </a>
 
         {/* YouTube */}
-        <a
-          href="https://www.youtube.com/@zerowattsphotography"
-          className="footer__social-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="YouTube"
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-            <polygon
-              points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"
-              fill="white"
-            />
-          </svg>
-        </a>
+       
       </div>
 
-      <a href="tel:+918939700777" className="footer__phone">
-        +91 89397 00777
+      <a href="tel:+60176212001" className="footer__phone">
+        +60 17-621 2001
       </a>
 
       <a
-        href="https://wa.me/918939700777"
+        href="https://wa.me/60176212001"
         className="footer__whatsapp"
         target="_blank"
         rel="noopener noreferrer"
@@ -208,7 +188,7 @@ return ( <footer className="footer"> <div className="footer__top">
 
   <div className="footer__bottom">
     <p className="footer__copyright">
-      © 2026 ZEROWATTS PHOTOGRAPHY
+      © 2026 AJ PHOTOGRAPHY
     </p>
   </div>
 </footer>

@@ -130,7 +130,7 @@ export default function Navbar() {
         {/* LOGO */}
        <Link to="/" className="navbar__logo" aria-label="Srimathi Photography">
   <span className="navbar__logo-text">
-    SRIMATHI PHOTOGRAPHY
+    AJ PHOTOGRAPHY
   </span>
 </Link>
 

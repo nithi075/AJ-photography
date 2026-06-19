@@ -39,7 +39,7 @@ return ( <section className="about" id="about" aria-labelledby="about-heading"> 
     {/* ---- Text Column ---- */}
     <div className="about__text">
       <span className="section-label">
-        Why Srimathi Photography?
+        Why AJ Photography?
       </span>
 
       <h2 className="about__heading" id="about-heading">
